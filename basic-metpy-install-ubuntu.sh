@@ -14,5 +14,5 @@ python3 -m pip install --upgrade pip
 
 pip3 install metpy
 
-# You can confirm the installation by running the following command: 
+# Confirm the installation by running the following
 #   pip3 show metpy
