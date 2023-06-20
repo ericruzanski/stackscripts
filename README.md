@@ -9,7 +9,6 @@ configuration of various software stacks on Linode servers.
 - [About](#about)
 - [Scripts](#scripts)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## About
@@ -48,20 +47,6 @@ To use a script from this repository as a Linode StackScript, follow these steps
 Please note that before using any script, it's important to review and understand its functionality to ensure 
 it meets your specific requirements. Always exercise caution when running scripts, especially in production 
 environments.
-
-## Contributing
-
-Contributions to this repository are welcome! If you have a new script to add, an improvement to an existing 
-script, or any other valuable contributions, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch for your changes.
-3. Make your modifications or add your new script.
-4. Commit your changes and push the branch to your forked repository.
-5. Open a pull request to submit your changes for review.
-
-Please ensure your contributions adhere to the repository's coding conventions and include documentation where 
-appropriate.
 
 ## License
 
