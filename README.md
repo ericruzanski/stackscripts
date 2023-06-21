@@ -7,7 +7,6 @@ configuration of various software stacks on Linode servers.
 ## Table of Contents
 
 - [About](#about)
-- [Scripts](#scripts)
 - [Usage](#usage))
 - [License](#license)
 
@@ -19,22 +18,6 @@ making it easier to set up software stacks, deploy applications, and perform sys
 
 The scripts in this repository are written in various scripting languages like shell, Python, and Ansible, 
 allowing you to choose the one that suits your needs. 
-
-## Scripts
-
-The following scripts are currently available in this repository:
-
-- `jupyter-notebook.sh`: This bash script automates the installation and 
-configuration of the classic Jupyter Notebook, and serves it securely via 
-an NGINX reverse proxy. 
-- `basic-metpy-install-ubuntu.sh`: MetPy is a collection of tools in 
-Python for reading, visualizing, and performing calculations with 
-meteorological (weather) data. 
-- `lambda-stack-easy-ubuntu.sh`: Lambda Stack is a software stack for 
-machine learning and deep learning, named after the Greek letter lambda, 
-commonly used in mathematical functions.
-
-Feel free to explore each script's directory for more information on usage and customization.
 
 ## Usage
 
