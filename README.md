@@ -19,6 +19,9 @@ making it easier to set up software stacks, deploy applications, and perform sys
 The scripts in this repository are written in various scripting languages like shell, Python, and Ansible, 
 allowing you to choose the one that suits your needs. 
 
+- https://www.linode.com/products/stackscripts/
+- https://www.linode.com/docs/products/tools/stackscripts/
+
 ## Usage
 
 To use a script from this repository as a Linode StackScript, follow these steps:
