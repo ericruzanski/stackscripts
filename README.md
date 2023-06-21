@@ -7,7 +7,8 @@ configuration of various software stacks on Linode servers.
 ## Table of Contents
 
 - [About](#about)
-- [Usage](#usage))
+- [Documentation](#documentation)
+- [Usage](#usage)
 - [License](#license)
 
 ## About
@@ -19,8 +20,20 @@ making it easier to set up software stacks, deploy applications, and perform sys
 The scripts in this repository are written in various scripting languages like shell, Python, and Ansible, 
 allowing you to choose the one that suits your needs. 
 
-- https://www.linode.com/products/stackscripts/
-- https://www.linode.com/docs/products/tools/stackscripts/
+## Documentation
+
+To learn more about Linode StackScripts, you can visit the following 
+links:
+
+- [Linode StackScripts Product 
+Page](https://www.linode.com/products/stackscripts/): This page provides 
+an overview of Linode StackScripts, highlighting their benefits and 
+features.
+
+- [Linode StackScripts 
+Documentation](https://www.linode.com/docs/products/tools/stackscripts/): 
+The official documentation offers comprehensive guidance on using 
+StackScripts, including usage instructions and examples.
 
 ## Usage
 
