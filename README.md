@@ -8,7 +8,7 @@ configuration of various software stacks on Linode servers.
 
 - [About](#about)
 - [Scripts](#scripts)
-- [Usage](#usage)
+- [Usage](#usage))
 - [License](#license)
 
 ## About
@@ -24,9 +24,15 @@ allowing you to choose the one that suits your needs.
 
 The following scripts are currently available in this repository:
 
-- `script1.sh`: Shell script that sets up a LAMP stack for hosting PHP applications.
-- `script2.py`: Python script that installs and configures a Django application server.
-- `script3.yml`: Ansible playbook that deploys a Node.js application with Nginx as a reverse proxy.
+- `jupyter-notebook.sh`: This bash script automates the installation and 
+configuration of the classic Jupyter Notebook, and serves it securely via 
+an NGINX reverse proxy. 
+- `basic-metpy-install-ubuntu.sh`: MetPy is a collection of tools in 
+Python for reading, visualizing, and performing calculations with 
+meteorological (weather) data. 
+- `lambda-stack-easy-ubuntu.sh`: Lambda Stack is a software stack for 
+machine learning and deep learning, named after the Greek letter lambda, 
+commonly used in mathematical functions.
 
 Feel free to explore each script's directory for more information on usage and customization.
 
