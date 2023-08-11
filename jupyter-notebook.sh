@@ -63,7 +63,7 @@ sudo python3 -m pip install notebook
 jupyter notebook --generate-config
 CONFIG_FILE="/root/.jupyter/jupyter_notebook_config.py"
 mkdir /opt/notebooks
-HASHED_PASSWORD=$(python3 -c "from notebook.auth import passwd; print(passwd('${NOTEBOOK_PASSWORD}'))")
+HASHED_PASSWORD=$(python3 -c "from jupyter_server.auth import passwd; print(passwd('${NOTEBOOK_PASSWORD}'))")
 sudo tee -a $CONFIG_FILE <<EOF
 c.NotebookApp.notebook_dir = '/opt/notebooks'
 c.NotebookApp.open_browser = False
