@@ -126,8 +126,8 @@ sleep 90
 apt install python3-certbot-nginx -y 
 certbot run --non-interactive --nginx --agree-tos --redirect -d ${ABS_DOMAIN} -m ${SOA_EMAIL_ADDRESS} -w /var/www/html/
 
-## Start Jupyter Notebook
-jupyter notebook
-
 ## Cleanup
 stackscript_cleanup
+
+## Start Jupyter Notebook
+jupyter notebook
