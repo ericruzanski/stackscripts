@@ -1,7 +1,7 @@
 # StackScripts
 
 The StackScripts repository is a collection of command line scripts (shell, python, ansible) 
-intended for use on Linode, now Akamai Connected Cloud. 
+intended for use on Linode, now Akamai Cloud. 
 
 ## Table of Contents
 
@@ -12,9 +12,9 @@ intended for use on Linode, now Akamai Connected Cloud.
 
 ## About
 
-StackScripts automate the deployment and configuration of Linode cloud servers, streamlining 
+StackScripts automate the deployment and configuration of cloud servers (Linodes), streamlining 
 the setup of software stacks, application deployment, and overall system configurations. Note, they
-are simply a script that runs at VPS deployment. StackScripts differ from cloud-init/metadata. 
+are simply a script that runs at instance deployment. StackScripts differ from metadata. 
 
 ## Documentation
 
