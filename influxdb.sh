@@ -48,7 +48,7 @@ ufw allow https
 ufw allow 8086
 
 # Install InfluxDB
-wget https://dl.influxdata.com/influxdb/releases/influxdb2-2.7.0-amd64.deb
+wget https://dl.influxdata.com/influxdb/releases/influxdb2-2.7.3-amd64.deb
 sudo dpkg -i influxdb2-2.7.0-amd64.deb
 
 # Install NGINX and Python (Certbot SSL)
