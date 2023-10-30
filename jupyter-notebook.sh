@@ -1,4 +1,19 @@
 #!/bin/bash
+################################################################################
+# Script: jupyter-notebook.sh
+# Author: Eric Ruzanski
+# Description: This script installs and configures the classic Jupyter Notebook,
+#              serves it securely via an Nginx reverse proxy, and makes it 
+#              accessible through a web browser via the provided domain or 
+#              default reverse DNS (rDNS) of the Linode. If the Linode is ever 
+#              rebooted, or Jupyter Notebook stops running, simply start 
+#              Jupyter Notebook from the command line using 'jupyter notebook &'.
+#
+# GitHub Repository:
+# https://github.com/ericruzanski/StackScripts/blob/main/jupyter-notebook.sh
+#
+# Disclaimer: This script is provided as-is without any warranties.
+################################################################################
 
 ## Jupyter Notebook Settings
 #<UDF name="notebook_password" label="Jupyter Notebook Password" example="s3cure_p4ssw0rd">
@@ -55,15 +70,18 @@ ufw allow http
 ufw allow https
 ufw allow 8888
 
-## Install Python and Notebook
-sudo apt-get install python3-pip python3-dev python3-venv -y
-sudo python3 -m pip install notebook
+## Prepare the Python venv
+apt-get install python3-venv python3-pip -y
+mkdir /root/jupyter-notebook
+mkdir /opt/notebooks
+python3 -m venv /root/jupyter-notebook
+source /root/jupyter-notebook/bin/activate
+python3 -m pip install notebook
 
-# Generate and configure the default Jupyter Notebook config
+# Configure Jupyter Notebook
 jupyter notebook --generate-config
 CONFIG_FILE="/root/.jupyter/jupyter_notebook_config.py"
-mkdir /opt/notebooks
-HASHED_PASSWORD=$(python3 -c "from jupyter_server.auth import passwd; print(passwd('${NOTEBOOK_PASSWORD}'))")
+HASHED_PASSWORD=$(python3 -c "from jupyter_server.auth import passwd; print(passwd('$NOTEBOOK_PASSWORD'))")
 sudo tee -a $CONFIG_FILE <<EOF
 c.NotebookApp.notebook_dir = '/opt/notebooks'
 c.NotebookApp.open_browser = False
@@ -73,8 +91,10 @@ c.NotebookApp.allow_root = True
 c.NotebookApp.trust_xheaders = True
 EOF
 
+deactivate
+
 ## Install NGINX 
-apt install nginx -y 
+apt-get install nginx -y 
 
 # Configure NGINX reverse proxy
 rm /etc/nginx/sites-enabled/default
@@ -123,11 +143,12 @@ systemctl restart nginx
 sleep 90
 
 ## Configure SSL
-apt install python3-certbot-nginx -y 
+apt-get install python3-certbot-nginx -y 
 certbot run --non-interactive --nginx --agree-tos --redirect -d ${ABS_DOMAIN} -m ${SOA_EMAIL_ADDRESS} -w /var/www/html/
 
 ## Cleanup
 stackscript_cleanup
 
 ## Start Jupyter Notebook
+source /root/jupyter-notebook/bin/activate
 jupyter notebook
