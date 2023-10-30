@@ -1,4 +1,16 @@
 #!/bin/bash
+################################################################################
+# Script: influxdb.sh
+# Author: Eric Ruzanski
+# Description: This script installs InfluxDB and serves the configuration
+#              interface securly via an Nginx reverse proxy. This is a minimal
+#              install. All configuration is handeled by the user after the fact.
+#
+# GitHub Repository:
+# https://github.com/ericruzanski/StackScripts/blob/main/influxdb.sh
+#
+# Disclaimer: This script is provided as-is without any warranties.
+################################################################################
 
 ## Linode UDF Settings
 #<UDF name="soa_email_address" label="Email address (for the Let's Encrypt SSL certificate)" example="user@domain.tld">
@@ -49,10 +61,10 @@ ufw allow 8086
 
 # Install InfluxDB
 wget https://dl.influxdata.com/influxdb/releases/influxdb2-2.7.3-amd64.deb
-sudo dpkg -i influxdb2-2.7.0-amd64.deb
+dpkg -i influxdb2-2.7.0-amd64.deb
 
 # Install NGINX and Python (Certbot SSL)
-apt install nginx certbot python3-certbot-nginx -y 
+apt-get install nginx certbot python3-certbot-nginx -y 
 
 # Configure NGINX reverse proxy
 rm /etc/nginx/sites-enabled/default
@@ -77,11 +89,11 @@ systemctl restart nginx
 sleep 90
 
 ## Configure SSL
-apt install python3-certbot-nginx -y 
+apt-get install python3-certbot-nginx -y 
 certbot run --non-interactive --nginx --agree-tos --redirect -d ${ABS_DOMAIN} -m ${SOA_EMAIL_ADDRESS} -w /var/www/html/
 
 ## Cleanup
 stackscript_cleanup
 
 # Start influxd
-sudo service influxdb start
+service influxdb start
